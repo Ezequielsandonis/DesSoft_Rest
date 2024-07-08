@@ -34,6 +34,7 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
 
+<<<<<<< HEAD
   deploy:
     name: Deploy to Production
     needs: build
@@ -73,3 +74,6 @@ jobs:
           FTP_SERVER: "GestorDeTareas.somee.com"
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+=======
+ 
+>>>>>>> develop
