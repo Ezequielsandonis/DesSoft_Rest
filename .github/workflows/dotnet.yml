@@ -34,46 +34,33 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
 
-<<<<<<< HEAD
-  deploy:
-    name: Deploy to Production
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+      - name: Deploy to Production
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+          - name: Check out code
+            uses: actions/checkout@v4
 
-      - name: Setup PowerShell Toolkit
-        uses: hugoalh-studio/setup-powershell-toolkit-ghaction@v2.0.0
+          - name: Setup PowerShell Toolkit
+            uses: hugoalh-studio/setup-powershell-toolkit-ghaction@v2.0.0
 
-      - name: List output directories
-        run: |
-          echo "Listing files in the output directories:"
-          ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Datos/bin/Debug/net8.0/
-<<<<<<< HEAD
-          ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Negocio/bin/Debug/net8.0/
-=======
->>>>>>> develop
-          ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Web/bin/Debug/net8.0/
-          ls -alh ${GITHUB_WORKSPACE}/GestorTareas.API/bin/Debug/net8.0/
-          ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Test/bin/Debug/net8.0/
+          - name: List output directories
+            run: |
+              echo "Listing files in the output directories:"
+              ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Datos/bin/Debug/net8.0/
+              ls -alh ${GITHUB_WORKSPACE}/GestorTareas.API/bin/Debug/net8.0/
+              ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Web/bin/Debug/net8.0/
+              ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Test/bin/Debug/net8.0/
 
-      - name: Run FTP deployment script
-        run: |
-          echo "Running FTP deployment script"
-          pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Datos/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Datos'"
-          pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.API/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/API'"
-<<<<<<< HEAD
-          pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Negocio/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Negocio'"
-=======
->>>>>>> develop
-          pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Web/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Web'"
-          pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Test/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Test'"
-        env:
-          FTP_SERVER: "GestorDeTareas.somee.com"
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-=======
- 
->>>>>>> develop
+          - name: Run FTP deployment script
+            run: |
+              echo "Running FTP deployment script"
+              pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ secrets.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Datos/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Datos'"
+              pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ secrets.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.API/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/API'"
+              pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ secrets.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Web/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Web'"
+              pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ secrets.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Test/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Test'"
+            env:
+              FTP_SERVER: ${{ secrets.FTP_SERVER }}
+              FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+              FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
