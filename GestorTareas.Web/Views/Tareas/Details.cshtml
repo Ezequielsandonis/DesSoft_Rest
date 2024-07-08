@@ -1,0 +1,19 @@
+﻿@model GestorTareas.API.Models.DTO.TareasDto;
+
+@{
+    ViewData["Title"] = "Detalles de Tarea";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Titulo</h5>
+            <p class="card-text">ID: @Model.TareaId</p>
+            <p class="card-text">Fecha Limite: @(Model.FechaLimite.HasValue ? Model.FechaLimite.Value.ToString("yyyy-MM-dd") : "No especificado")</p>
+            <p class="card-text">Estado: @(Model.Estado ? "Completada" : "Pendiente")</p>
+            <a class="btn btn-primary" href="@Url.Action("Edit", "Tareas", new { id = Model.TareaId })">Editar</a>
+            <a class="btn btn-secondary" href="@Url.Action("Index", "Tareas")">Volver a la lista</a>
+        </div>
+    </div>
+</div>

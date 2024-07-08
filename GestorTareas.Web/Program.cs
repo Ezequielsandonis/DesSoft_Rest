@@ -1,7 +1,24 @@
+using AppDbContext;
+using GestorTareas.Web.Controllers;
+using System;
+using TareasRepositorio;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//configuracion de la conexion 
+builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("conexion")));
+
+builder.Services.AddHttpClient<TareasController>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7045/api/Tareas"); // URL base de la API
+});
+//dependencias
+
 
 var app = builder.Build();
 

@@ -1,0 +1,33 @@
+﻿@model GestorTareas.API.Models.DTO.TareasDto;
+
+@{
+    ViewData["Title"] = "Crear Tarea";
+}
+
+@*Validar que no haya errores*@
+@if (ViewBag.Error != null)
+{
+    <div class="alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label for="Titulo">Título:</label>
+            <input asp-for=Titulo type="text" class="form-control" value="@Model.Titulo"/>
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="FechaLimite">Fecha Limite:</label>
+            <input type="date" class="form-control" id="FechaLimite" name="FechaLimite" value="@Model.FechaLimite?.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="FechaLimite" class="text-danger"></span>
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Tareas")">Cancelar</a>
+    </form>
+</div>

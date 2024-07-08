@@ -1,0 +1,38 @@
+﻿@model List<GestorTareas.API.Models.DTO.TareasDto>
+
+@{
+    ViewData["Title"] = "Lista de Tareas";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <a class="btn btn-primary mb-3" href="@Url.Action("Create", "Tareas")">Nueva Tarea</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Fecha Limite</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+           @*Recorrer la lista de tareas*@
+            @foreach (var tarea in Model)
+            {
+                <tr>
+                    <td>@tarea.Titulo</td>
+                    <td>@(tarea.FechaLimite.HasValue ? tarea.FechaLimite.Value.ToString("yyyy-MM-dd") : "No especificado")</td>
+                    <td>@(tarea.Estado ? "Completada" : "Pendiente")</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="@Url.Action("Details", "Tareas", new { id = tarea.TareaId })">Detalles</a>
+                        <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", "Tareas", new { id = tarea.TareaId })">Editar</a>
+                        <form asp-action="Delete" asp-route-id="@tarea.TareaId" method="post" style="display:inline;">
+                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

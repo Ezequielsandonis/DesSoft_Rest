@@ -1,0 +1,12 @@
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\bin\Debug\net8.0\AppDbContext.deps.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\bin\Debug\net8.0\AppDbContext.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\bin\Debug\net8.0\AppDbContext.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.AssemblyInfoInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.AssemblyInfo.cs
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.csproj.CoreCompileInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.sourcelink.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\refint\AppDbContext.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\AppDbContext.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Rest\AppDbContext\obj\Debug\net8.0\ref\AppDbContext.dll

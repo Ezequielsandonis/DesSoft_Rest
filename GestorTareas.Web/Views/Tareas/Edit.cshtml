@@ -1,0 +1,34 @@
+﻿@model GestorTareas.API.Models.DTO.TareasDto;
+
+@{
+    ViewData["Title"] = "Editar Tarea";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <input type="hidden" asp-for="TareaId" value="@Model.TareaId" />
+        <div class="form-group">
+            <label for="Titulo">Título:</label>
+            <input type="text" class="form-control" id="Titulo" name="Titulo" value="@Model.Titulo" required />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="FechaLimite">Fecha Limite:</label>
+            <input type="date" class="form-control" id="FechaLimite" name="FechaLimite" value="@Model.FechaLimite?.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="FechaLimite" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" asp-for="Estado" class="form-check-input" />
+            <label asp-for="Estado" class="form-check-label" style="color:black">Completada</label>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Tareas")">Cancelar</a>
+    </form>
+</div>

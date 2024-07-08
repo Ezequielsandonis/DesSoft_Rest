@@ -50,7 +50,10 @@ jobs:
         run: |
           echo "Listing files in the output directories:"
           ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Datos/bin/Debug/net8.0/
+<<<<<<< HEAD
           ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Negocio/bin/Debug/net8.0/
+=======
+>>>>>>> develop
           ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Web/bin/Debug/net8.0/
           ls -alh ${GITHUB_WORKSPACE}/GestorTareas.API/bin/Debug/net8.0/
           ls -alh ${GITHUB_WORKSPACE}/GestorTareas.Test/bin/Debug/net8.0/
@@ -60,7 +63,10 @@ jobs:
           echo "Running FTP deployment script"
           pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Datos/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Datos'"
           pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.API/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/API'"
+<<<<<<< HEAD
           pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Negocio/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Negocio'"
+=======
+>>>>>>> develop
           pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Web/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Web'"
           pwsh -Command "& '${{ github.workspace }}/.github/scripts/deploy.ps1' -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '${{ github.workspace }}/GestorTareas.Test/bin/Debug/net8.0/' -remotePath 'www.GestorDeTareas.somee.com/Test'"
         env:
