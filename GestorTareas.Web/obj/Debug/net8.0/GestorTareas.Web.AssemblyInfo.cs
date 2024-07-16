@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestorTareas.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fcb5fdf1a32d52e11a56fb52e8aeb75bb0c9bc7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ee2cfe241810540813b32eaa2882aa225a4919e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestorTareas.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestorTareas.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

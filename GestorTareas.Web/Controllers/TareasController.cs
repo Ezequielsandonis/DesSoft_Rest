@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GestorTareas.API.Models.DTO;
 using System.Net.Http;
 using System.Net.Http.Json;
-using Modelos;
+using GestorTareas.Web.Models;
+
 
 namespace GestorTareas.Web.Controllers
 {
@@ -25,7 +25,7 @@ namespace GestorTareas.Web.Controllers
                 return StatusCode((int)response.StatusCode, "Error al obtener la lista de tareas.");
             }
 
-            var tareas = await response.Content.ReadFromJsonAsync<List<TareasDto>>();
+            var tareas = await response.Content.ReadFromJsonAsync<List<TareasViewModel>>();
             return View(tareas);
         }
 
@@ -37,14 +37,14 @@ namespace GestorTareas.Web.Controllers
             {
                 return NotFound("Tarea no encontrada.");
             }
-            var tarea = await response.Content.ReadFromJsonAsync<TareasDto>();
+            var tarea = await response.Content.ReadFromJsonAsync<TareasViewModel>();
             return View(tarea);
         }
 
         // GET: Tareas/Create
         public IActionResult Create()
         {
-            var tarea = new TareasDto(); 
+            var tarea = new TareasViewModel(); 
             return View(tarea);
         }
 
@@ -52,7 +52,7 @@ namespace GestorTareas.Web.Controllers
         // POST: Tareas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TareasDto tarea)
+        public async Task<IActionResult> Create(TareasViewModel tarea)
         {
             if (ModelState.IsValid)
             {
@@ -76,14 +76,14 @@ namespace GestorTareas.Web.Controllers
             {
                 return NotFound("Tarea no encontrada.");
             }
-            var tarea = await response.Content.ReadFromJsonAsync<TareasDto>();
+            var tarea = await response.Content.ReadFromJsonAsync<TareasViewModel>();
             return View(tarea);
         }
 
         // POST: Tareas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, TareasDto tarea)
+        public async Task<IActionResult> Edit(int id, TareasViewModel tarea)
         {
             if (id != tarea.TareaId)
             {
@@ -110,7 +110,7 @@ namespace GestorTareas.Web.Controllers
             {
                 return NotFound("Tarea no encontrada.");
             }
-            var tarea = await response.Content.ReadFromJsonAsync<TareasDto>();
+            var tarea = await response.Content.ReadFromJsonAsync<TareasViewModel>();
             return View(tarea);
         }
 
